@@ -91,7 +91,18 @@ class CeleryConfig(object):
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+print(DATABASE_DIALECT)
+print(DATABASE_USER)
+print(DATABASE_PASSWORD)
+print(DATABASE_HOST)
+print(DATABASE_PORT)
+print(DATABASE_DB)
+
+FEATURE_FLAGS = {
+	"ALERT_REPORTS": True,
+	"ENABLE_TEMPLATE_PROCESSING": True,
+	"DASHBOARD_CROSS_FILTERS": True,
+}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
