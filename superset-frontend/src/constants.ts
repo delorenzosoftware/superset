@@ -31,6 +31,10 @@ export const URL_PARAMS = {
     name: 'standalone',
     type: 'number',
   },
+  uiConfig: {
+    name: 'uiConfig',
+    type: 'number',
+  },
   preselectFilters: {
     name: 'preselect_filters',
     type: 'object',
@@ -50,6 +54,18 @@ export const URL_PARAMS = {
   showFilters: {
     name: 'show_filters',
     type: 'boolean',
+  },
+  formDataKey: {
+    name: 'form_data_key',
+    type: 'string',
+  },
+  sliceId: {
+    name: 'slice_id',
+    type: 'string',
+  },
+  datasetId: {
+    name: 'dataset_id',
+    type: 'string',
   },
 } as const;
 

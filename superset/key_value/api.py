@@ -37,10 +37,10 @@ from superset.datasets.commands.exceptions import (
     DatasetAccessDeniedError,
     DatasetNotFoundError,
 )
-from superset.exceptions import InvalidPayloadFormatError
 from superset.key_value.commands.exceptions import KeyValueAccessDeniedError
 from superset.key_value.commands.parameters import CommandParameters
 from superset.key_value.schemas import KeyValuePostSchema, KeyValuePutSchema
+from superset.views.base_api import requires_json
 
 logger = logging.getLogger(__name__)
 
@@ -69,16 +69,13 @@ class KeyValueRestApi(BaseApi, ABC):
             pass
         super().add_apispec_components(api_spec)
 
+    @requires_json
     def post(self, pk: int) -> Response:
-        if not request.is_json:
-            raise InvalidPayloadFormatError("Request is not JSON")
         try:
             item = self.add_model_schema.load(request.json)
+            tab_id = request.args.get("tab_id")
             args = CommandParameters(
-                actor=g.user,
-                resource_id=pk,
-                value=item["value"],
-                query_params=request.args,
+                actor=g.user, resource_id=pk, value=item["value"], tab_id=tab_id
             )
             key = self.get_create_command()(args).run()
             return self.response(201, key=key)
@@ -94,22 +91,20 @@ class KeyValueRestApi(BaseApi, ABC):
         except (ChartNotFoundError, DashboardNotFoundError, DatasetNotFoundError) as ex:
             return self.response(404, message=str(ex))
 
+    @requires_json
     def put(self, pk: int, key: str) -> Response:
-        if not request.is_json:
-            raise InvalidPayloadFormatError("Request is not JSON")
         try:
             item = self.edit_model_schema.load(request.json)
+            tab_id = request.args.get("tab_id")
             args = CommandParameters(
                 actor=g.user,
                 resource_id=pk,
                 key=key,
                 value=item["value"],
-                query_params=request.args,
+                tab_id=tab_id,
             )
-            result = self.get_update_command()(args).run()
-            if not result:
-                return self.response_404()
-            return self.response(200, message="Value updated successfully.")
+            key = self.get_update_command()(args).run()
+            return self.response(200, key=key)
         except ValidationError as ex:
             return self.response(400, message=ex.messages)
         except (
@@ -124,9 +119,7 @@ class KeyValueRestApi(BaseApi, ABC):
 
     def get(self, pk: int, key: str) -> Response:
         try:
-            args = CommandParameters(
-                actor=g.user, resource_id=pk, key=key, query_params=request.args
-            )
+            args = CommandParameters(actor=g.user, resource_id=pk, key=key)
             value = self.get_get_command()(args).run()
             if not value:
                 return self.response_404()
@@ -143,9 +136,7 @@ class KeyValueRestApi(BaseApi, ABC):
 
     def delete(self, pk: int, key: str) -> Response:
         try:
-            args = CommandParameters(
-                actor=g.user, resource_id=pk, key=key, query_params=request.args
-            )
+            args = CommandParameters(actor=g.user, resource_id=pk, key=key)
             result = self.get_delete_command()(args).run()
             if not result:
                 return self.response_404()
