@@ -81,6 +81,10 @@ export const MenuItem = styled(AntdMenu.Item)`
     text-decoration: none;
   }
 
+  > a:hover {
+    color :${({ theme }) => theme.colors.primary.base};
+  }
+
   &.ant-menu-item {
     height: ${({ theme }) => theme.gridUnit * 7}px;
     line-height: ${({ theme }) => theme.gridUnit * 7}px;
@@ -108,6 +112,15 @@ export const MenuItem = styled(AntdMenu.Item)`
       }
     }
   }
+  &.ant-menu-item-selected {
+    a {
+      color : ${({ theme }) => theme.colors.primary.base};
+      border-bottom: 3px solid ${({ theme }) => theme.colors.primary.base} !important;
+    }
+    a:hover {
+      color: #000 !important;
+    }
+  }
 
   &.ant-menu-item,
   &.ant-dropdown-menu-item {
@@ -128,6 +141,14 @@ export const StyledNav = styled(AntdMenu)`
     vertical-align: inherit;
     &:hover {
       color: ${({ theme }) => theme.colors.grayscale.dark1};
+    }
+  }
+  &.ant-menu-submenu-item {
+    a {
+      color : ${({ theme }) => theme.colors.primary.base};
+    }
+    a:hover {
+      color: #000 !important;
     }
   }
 
@@ -199,6 +220,10 @@ export const StyledSubMenu = styled(AntdMenu.SubMenu)`
     & > span {
       position: relative;
       top: 7px;
+      color: #000;
+    }
+    & > div {
+      color: #000;
     }
     &:hover {
       color: ${({ theme }) => theme.colors.primary.base};

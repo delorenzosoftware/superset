@@ -44,9 +44,10 @@ const StyledTabs = ({
       .ant-tabs-tab {
         flex: 1 1 auto;
         &.ant-tabs-tab-active .ant-tabs-tab-btn {
-          color: inherit;
+          color: ${theme.colors.primary.base} !important;
         }
         &:hover {
+          color: ${theme.colors.primary.base};
           .anchor-link-container {
             cursor: pointer;
             .fa.fa-link {

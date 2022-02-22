@@ -59,25 +59,25 @@ const defaultTheme = {
       help: '#737373',
     },
     primary: {
-      base: '#20A7C9',
-      dark1: '#1A85A0',
-      dark2: '#156378',
-      light1: '#79CADE',
-      light2: '#A5DAE9',
-      light3: '#D2EDF4',
-      light4: '#E9F6F9',
-      light5: '#F3F8FA',
+      base: '#fbc304', //20A7C9
+      dark1: '#cd9f12', //1A85A0
+      dark2: '#a17d17', //156378
+      light1: '#ffcc49', //79CADE
+      light2: '#ffd671', //A5DAE9
+      light3: '#ffe095', //D2EDF4
+      light4: '#ffeab8', //E9F6F9
+      light5: '#fff4dc', //F3F8FA
     },
     secondary: {
-      base: '#444E7C',
-      dark1: '#363E63',
-      dark2: '#282E4A',
-      dark3: '#1B1F31',
-      light1: '#8E94B0',
-      light2: '#B4B8CA',
-      light3: '#D9DBE4',
-      light4: '#ECEEF2',
-      light5: '#F5F5F8',
+      base: '#ffd400', //444E7C
+      dark1: '#d0ad12', //363E63
+      dark2: '#a38817', //282E4A
+      dark3: '#504315', //1B1F31
+      light1: '#ffdb4b', //8E94B0
+      light2: '#ffe273', //B4B8CA
+      light3: '#ffe997', //D9DBE4
+      light4: '#fff0ba', //ECEEF2
+      light5: '#fff7dc', //F5F5F8
     },
     grayscale: {
       base: '#666666',
