@@ -25,6 +25,7 @@ import {
   SequentialScheme,
   SequentialSchemeConfig,
   CategoricalAirbnb,
+  CategorialDelorenzo,
   CategoricalD3,
   CategoricalEcharts,
   CategoricalGoogle,
@@ -65,6 +66,7 @@ export default function setupColors(
     getCategoricalSchemeRegistry(),
     [
       ...CategoricalAirbnb,
+      ...CategorialDelorenzo,
       ...CategoricalD3,
       ...CategoricalEcharts,
       ...CategoricalGoogle,

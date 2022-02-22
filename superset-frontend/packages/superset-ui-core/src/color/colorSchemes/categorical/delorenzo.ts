@@ -17,11 +17,25 @@
  * under the License.
  */
 
-export { default as CategoricalAirbnb } from './airbnb';
-export { default as CategorialDelorenzo } from './delorenzo';
-export { default as CategoricalD3 } from './d3';
-export { default as CategoricalEcharts } from './echarts';
-export { default as CategoricalGoogle } from './google';
-export { default as CategoricalLyft } from './lyft';
-export { default as CategoricalPreset } from './preset';
-export { default as CategoricalSuperset } from './superset';
+// import CategoricalScheme from '../../CategoricalScheme';
+
+import {CategoricalScheme} from '@superset-ui/core';
+
+const schemes = [
+  {
+    id: 'delorenzoColors',
+    label: 'De Lorenzo Colors',
+    colors: [
+        "#fbc304",
+        "#cd9f12",
+        "#a17d17",
+        "#ffcc49",
+        "#ffd671",
+        "#ffe095",
+        "#ffeab8",
+        "#fff4dc",
+    ],
+  },
+].map(s => new CategoricalScheme(s));
+
+export default schemes;
