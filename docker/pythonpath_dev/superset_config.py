@@ -91,13 +91,6 @@ class CeleryConfig(object):
 
 CELERY_CONFIG = CeleryConfig
 
-print(DATABASE_DIALECT)
-print(DATABASE_USER)
-print(DATABASE_PASSWORD)
-print(DATABASE_HOST)
-print(DATABASE_PORT)
-print(DATABASE_DB)
-
 FEATURE_FLAGS = {
 	"ALERT_REPORTS": True,
 	"ENABLE_TEMPLATE_PROCESSING": True,
@@ -109,6 +102,8 @@ WEBDRIVER_BASEURL = "http://superset:8088/"
 WEBDRIVER_BASEURL_USER_FRIENDLY = WEBDRIVER_BASEURL
 
 SQLLAB_CTAS_NO_LIMIT = True
+
+APP_NAME = "De Lorenzo"
 
 #
 # Optionally import superset_config_docker.py (which will have been included on
