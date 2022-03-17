@@ -88,7 +88,7 @@ class CeleryConfig(object):
         },
 	'cache-warmup-daily': {
 		'task': 'cache-warmup',
-		'schedule': crontab(minute=30, hour=16),  # every 3 am, after the preprcessing data
+		'schedule': crontab(minute=0, hour=3),  # every 3 am, after the preprcessing data
 		'kwargs': {'strategy_name': 'dummy'},
 	},
     }
