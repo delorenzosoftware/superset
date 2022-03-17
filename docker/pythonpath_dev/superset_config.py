@@ -86,24 +86,23 @@ class CeleryConfig(object):
             "task": "reports.prune_log",
             "schedule": crontab(minute=10, hour=0),
         },
-        'cache-warmup-hourly': {
-		'task': 'cache-warmup',
-		'schedule': crontab(minute=0, hour='*'),  # hourly
-		'kwargs': {
-		    'strategy_name': 'top_n_dashboards',
-		    'top_n': 5,
-		    'since': '7 days ago',
-        },
-    },
     }
 
-
 CELERY_CONFIG = CeleryConfig
+
+DATA_CACHE_CONFIG = {
+    'CACHE_TYPE': 'redis',
+    'CACHE_DEFAULT_TIMEOUT': 3600,
+    'CACHE_KEY_PREFIX': 'superset_results',
+    'CACHE_REDIS_URL': 'redis://redis:6379/0',
+}
 
 FEATURE_FLAGS = {
 	"ALERT_REPORTS": True,
 	"ENABLE_TEMPLATE_PROCESSING": True,
 	"DASHBOARD_CROSS_FILTERS": True,
+	"DASHBOARD_CACHE": True,
+	"CLIENT_CACHE": True
 }
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
