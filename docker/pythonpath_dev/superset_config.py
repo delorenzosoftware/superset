@@ -97,6 +97,20 @@ DATA_CACHE_CONFIG = {
     'CACHE_REDIS_URL': 'redis://redis:6379/0',
 }
 
+FILTER_STATE_CACHE_CONFIG = {
+    'CACHE_TYPE': 'redis',
+    'CACHE_DEFAULT_TIMEOUT': 3600,
+    'CACHE_KEY_PREFIX': 'superset_filter',
+    'CACHE_REDIS_URL': 'redis://redis:6379/0',
+}
+
+EXPLORE_FORM_DATA_CACHE_CONFIG = {
+    'CACHE_TYPE': 'redis',
+    'CACHE_DEFAULT_TIMEOUT': 3600,
+    'CACHE_KEY_PREFIX': 'superset_explore',
+    'CACHE_REDIS_URL': 'redis://redis:6379/0',
+}
+
 FEATURE_FLAGS = {
 	"ALERT_REPORTS": True,
 	"ENABLE_TEMPLATE_PROCESSING": True,
