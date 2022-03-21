@@ -90,14 +90,14 @@ class CeleryConfig(object):
 
 CELERY_CONFIG = CeleryConfig
 
-# CACHE_DEFAULT_TIMEOUT = 72000	# 20 hours, cache for all the day
+CACHE_DEFAULT_TIMEOUT = 72000	# 20 hours, cache for all the day
 
-# DATA_CACHE_CONFIG = {
-#     'CACHE_TYPE': 'redis',
-#     'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
-#     'CACHE_KEY_PREFIX': 'superset_results',
-#     'CACHE_REDIS_URL': 'redis://redis:6379/0',
-# }
+DATA_CACHE_CONFIG = {
+    'CACHE_TYPE': 'redis',
+    'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
+    'CACHE_KEY_PREFIX': 'superset_results',
+    'CACHE_REDIS_URL': 'redis://redis:6379/0',
+}
 
 # EXPLORE_FORM_DATA_CACHE_CONFIG = {
 #     'CACHE_TYPE': 'redis',
