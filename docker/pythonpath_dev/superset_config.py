@@ -86,37 +86,32 @@ class CeleryConfig(object):
             "task": "reports.prune_log",
             "schedule": crontab(minute=10, hour=0),
         },
-	'cache-warmup-daily': {
-		'task': 'cache-warmup',
-		'schedule': crontab(minute=0, hour=3),  # every 3 am, after the preprcessing data
-		'kwargs': {'strategy_name': 'dummy'},
-	},
     }
 
 CELERY_CONFIG = CeleryConfig
 
-CACHE_DEFAULT_TIMEOUT = 72000	# 20 hours, cache for all the day
+# CACHE_DEFAULT_TIMEOUT = 72000	# 20 hours, cache for all the day
 
-DATA_CACHE_CONFIG = {
-    'CACHE_TYPE': 'redis',
-    'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
-    'CACHE_KEY_PREFIX': 'superset_results',
-    'CACHE_REDIS_URL': 'redis://redis:6379/0',
-}
+# DATA_CACHE_CONFIG = {
+#     'CACHE_TYPE': 'redis',
+#     'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
+#     'CACHE_KEY_PREFIX': 'superset_results',
+#     'CACHE_REDIS_URL': 'redis://redis:6379/0',
+# }
 
-EXPLORE_FORM_DATA_CACHE_CONFIG = {
-    'CACHE_TYPE': 'redis',
-    'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
-    'CACHE_KEY_PREFIX': 'superset_explore',
-    'CACHE_REDIS_URL': 'redis://redis:6379/0',
-}
+# EXPLORE_FORM_DATA_CACHE_CONFIG = {
+#     'CACHE_TYPE': 'redis',
+#     'CACHE_DEFAULT_TIMEOUT': CACHE_DEFAULT_TIMEOUT,
+#     'CACHE_KEY_PREFIX': 'superset_explore',
+#     'CACHE_REDIS_URL': 'redis://redis:6379/0',
+# }
 
 FEATURE_FLAGS = {
 	"ALERT_REPORTS": True,
 	"ENABLE_TEMPLATE_PROCESSING": True,
 	"DASHBOARD_CROSS_FILTERS": True,
-	"DASHBOARD_CACHE": True,
-	"CLIENT_CACHE": True
+	# "DASHBOARD_CACHE": True,
+	# "CLIENT_CACHE": True
 }
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
