@@ -213,6 +213,23 @@ const schemes = [
     ],
   },
   {
+    id: 'delorenzo',
+    label: 'De lorenzo',
+    isDiverging: false,
+    colors: [
+      "#fbc304",
+      "#e1af03",
+      "#c89c03",
+      "#af8802",
+      "#967502",
+      "#7d6102",
+      "#644e01",
+      "#4b3a01",
+      "#322700",
+      "#191300",
+    ],
+  },
+  {
     id: 'echarts_gradient',
     label: 'ECharts gradient',
     isDiverging: false,
