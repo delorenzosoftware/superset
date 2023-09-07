@@ -39,10 +39,12 @@ services:
     restart: unless-stopped
     volumes:
       - db_home:/var/lib/postgresql/data
+    expose:
+      - 5432
 
   superset:
     env_file: docker/.env-non-dev
-    image: *superset-image
+    image: mekatronik/superset-delorenzo
     container_name: superset_app
     command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
     user: "root"
@@ -53,7 +55,7 @@ services:
     volumes: *superset-volumes
 
   superset-init:
-    image: *superset-image
+    image: mekatronik/superset-delorenzo
     container_name: superset_init
     command: ["/app/docker/docker-init.sh"]
     env_file: docker/.env-non-dev
@@ -62,7 +64,7 @@ services:
     volumes: *superset-volumes
 
   superset-worker:
-    image: *superset-image
+    image: mekatronik/superset-delorenzo
     container_name: superset_worker
     command: ["/app/docker/docker-bootstrap.sh", "worker"]
     env_file: docker/.env-non-dev
@@ -72,7 +74,7 @@ services:
     volumes: *superset-volumes
 
   superset-worker-beat:
-    image: *superset-image
+    image: mekatronik/superset-delorenzo
     container_name: superset_worker_beat
     command: ["/app/docker/docker-bootstrap.sh", "beat"]
     env_file: docker/.env-non-dev
