@@ -82,7 +82,7 @@ export const MenuItem = styled(AntdMenu.Item)`
   }
 
   > a:hover {
-    color :${({ theme }) => theme.colors.primary.base};
+    color: ${({ theme }) => theme.colors.primary.base};
   }
 
   &.ant-menu-item {
@@ -114,7 +114,7 @@ export const MenuItem = styled(AntdMenu.Item)`
   }
   &.ant-menu-item-selected {
     a {
-      color : ${({ theme }) => theme.colors.primary.base};
+      color: ${({ theme }) => theme.colors.primary.base};
       border-bottom: 3px solid ${({ theme }) => theme.colors.primary.base} !important;
     }
     a:hover {
@@ -145,7 +145,7 @@ export const StyledNav = styled(AntdMenu)`
   }
   &.ant-menu-submenu-item {
     a {
-      color : ${({ theme }) => theme.colors.primary.base};
+      color: ${({ theme }) => theme.colors.primary.base};
     }
     a:hover {
       color: #000 !important;
